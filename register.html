@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style2.css">
+
+    <script src="https://static.zohocdn.com/catalyst/sdk/js/2.0.0/catalystWebSDK.js"></script>
+<script src="/__catalyst/sdk/init.js"></script>
+
+    <script>
+
+  
+function reg(){
+       //Enter the first name, last name, email id, platform and the redirect url
+
+       var user_name = document.getElementById("Name").value;
+       var email = document.getElementById("Email").value;
+       var password = document.getElementById("pass").value;
+       
+       console.log(user_name);
+       console.log(email);
+       var data = {
+               "first_name": user_name,
+               "last_name": user_name,
+               "email_id": email,
+               "platform_type": "web",
+               "redirect_url": "https://shipmenttracking.zylker.com/"
+           };
+       
+           //Register the user by passing the object This in turn returns a promise
+       var auth = catalyst.auth;
+       var signupPromise = auth.signUp(data);
+       signupPromise
+               .then((response) => {
+                   console.log(response.content);
+                   alert("Registered Successfully");
+
+               })
+               .catch((err) => {
+
+                  alert("User already registered");
+                   console.log(err);
+                   console.log(1+1);
+               });}
+    </script>
+
+   
+</head>
+<body>
+
+    
+
+
+   <script>
+       /** console.log(2);**/
+               </script>
+           
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form id="signup-form" class="signup-form">
+                        <h2 class="form-title">Create account</h2>
+                        <div class="form-group">
+                            <input type="text" id="Name" class="form-input" name="name" id="name" placeholder="Your Name"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="Email" class="form-input" name="email" id="email" placeholder="Your Email"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="pass" class="form-input" name="password" id="password" placeholder="Password"/>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="re_password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+
+                        
+                        
+                        <div class="form-group">
+
+                            <button id="submit" class="form-submit" onclick="reg()">Sign up</button>
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        Have already an account ? <a href="login.html" class="loginhere-link">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
